@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 import uuid
 from datetime import datetime
+import time
 
 # Get the current date and time
 now = datetime.now()
@@ -25,7 +26,7 @@ st.title('QR Code Generator')
 
 user_url = st.text_input('Input your link')
 
-submit_button = st.button('Generate QR code')
+submit_button = st.button('Generate QR Code')
        
 if submit_button: 
 
@@ -46,7 +47,9 @@ if submit_button:
 
         img.save(session_dir / "qr_code.png")
 
-        st.success("QR code generated successfully.")
+        success_message = st.empty()  # Create an empty element for dynamic success message
+
+        success_message.success("QR code generated successfully.")
 
         image_filename = "qr_code.png" 
 
@@ -63,9 +66,10 @@ if submit_button:
         mime='application/octet-stream'
         )
 
+        # Sleep for 5 seconds and then remove the success message
+        time.sleep(5)
+        success_message.empty()  # Remove the success message after 5 seconds
+
 
     else:
         st.error("Input an appropriate Link")
-
-
-
