@@ -49,7 +49,7 @@ if submit_button:
 
         success_message = st.empty()  # Create an empty element for dynamic success message
 
-        success_message.success("QR code generated successfully.")
+        success_message.success("QR code generated successfully")
 
         image_filename = "qr_code.png" 
 
