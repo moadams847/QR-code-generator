@@ -60,7 +60,7 @@ if submit_button:
         st.image(str(image_path))
 
         st.download_button(
-        label="Download QR code",
+        label="Download QR Code",
         data=open(image_path, 'rb').read(),
         file_name=file_name,
         mime='application/octet-stream'
